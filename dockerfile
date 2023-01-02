@@ -25,12 +25,11 @@ ENV PYTHONUNBUFFERED=1 \
     # paths
     # this is where our requirements + virtual environment will live
     PYSETUP_PATH="/opt/pysetup" \
-    VENV_PATH="/opt/pysetup/.venv" \
-    SCRIPT_PATH="/opt/pysetup/.local/bin"
+    VENV_PATH="/opt/pysetup/.venv"
 
 
 # prepend poetry and venv to path + scripts home
-ENV PATH="$SCRIPT_PATH/bin:$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
+ENV PATH="$VENV_PATH/Scripts:$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
 
 # `builder-base` stage is used to build deps + create our virtual environment
