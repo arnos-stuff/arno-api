@@ -59,6 +59,4 @@ COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 # expose IP we listen on
 EXPOSE 8000
 
-# RUN python -m eudata_server prod --host 0.0.0.0 --port 8000
-ENTRYPOINT ["python", "-m"]
-CMD ["eudata_server", "prod", "--host", "0.0.0.0", "--port", "8000"]
+RUN python -m eudata_server prod --host 0.0.0.0 --port 8000
