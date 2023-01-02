@@ -48,7 +48,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 WORKDIR $PYSETUP_PATH
 
 # install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
-RUN pip install --no-cache-dir eudata-server==0.1.24
+RUN pip install --no-cache-dir eudata-server==0.1.26
 
 # `production` image used for runtime
 FROM python-base as production
