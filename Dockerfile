@@ -55,4 +55,4 @@ EXPOSE 8000
 
 ENTRYPOINT ["python", "-m"]
 
-CMD ["eudata_server", "prod", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["eudata_server", "prod", "--host", "0.0.0.0", "--port", $PORT]
