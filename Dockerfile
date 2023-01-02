@@ -48,11 +48,12 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 WORKDIR $PYSETUP_PATH
 
 # install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
-RUN pip install --no-cache-dir eudata-server==0.1.26
+RUN pip install eudata-server==0.1.26
 
 # `production` image used for runtime
 FROM python-base as production
 ENV FASTAPI_ENV=production
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 EXPOSE 8000
-CMD ["python -m", "eudata_server prod", "--host", "0.0.0.0", "--port", "8000"]
+
+RUN python -m eudata_server prod --host 0.0.0.0 --port 8000
