@@ -56,4 +56,4 @@ ENV FASTAPI_ENV=production
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 EXPOSE 8000
 
-RUN python -m eudata_server prod --host 0.0.0.0 --port 8000
+CMD ["python", "-m", "eudata_server", "prod", "--host", "0.0.0.0", "--port", "8000"]
