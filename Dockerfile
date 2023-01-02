@@ -50,7 +50,6 @@ WORKDIR $PYSETUP_PATH
 # install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
 RUN pip install eudata-server==0.1.26
 
-
 # `production` image used for runtime
 FROM python-base as production
 ENV FASTAPI_ENV=production
@@ -59,4 +58,6 @@ COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 # expose IP we listen on
 EXPOSE 8000
 
-CMD ["python", "-m", "eudata_server", "prod", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["python", "-m"]
+
+CMD ["eudata_server", "prod", "--host", "0.0.0.0", "--port", "8000"]
