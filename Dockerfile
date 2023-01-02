@@ -50,6 +50,7 @@ WORKDIR $PYSETUP_PATH
 # install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
 RUN pip install eudata-server==0.1.26
 
+# expose IP we listen on
 EXPOSE 8000
 
 ENTRYPOINT ["python", "-m"]
