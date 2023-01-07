@@ -2,32 +2,28 @@
 FROM python:3.9.10-slim as python-base
 
     # python
-ENV PYTHONUNBUFFERED=1 \
+ENV PYTHONUNBUFFERED=1
     # prevents python creating .pyc files
-    PYTHONDONTWRITEBYTECODE=1 \
-    ENV PYTHONUNBUFFERED 1 \
-    ENV PATH="/root/.local/bin:${PATH}" \
-    \
+ENV PYTHONDONTWRITEBYTECODE=1 
+ENV PYTHONUNBUFFERED 1
+ENV PATH="/root/.local/bin:${PATH}"
     # pip
-    PIP_NO_CACHE_DIR=off \
-    PIP_DISABLE_PIP_VERSION_CHECK=on \
-    PIP_DEFAULT_TIMEOUT=100 \
-    \
-    # poetry
-    # https://python-poetry.org/docs/configuration/#using-environment-variables
-    POETRY_VERSION=1.3.1 \
+ENV PIP_NO_CACHE_DIR=off
+ENV PIP_DISABLE_PIP_VERSION_CHECK=on
+ENV PIP_DEFAULT_TIMEOUT=100
+
     # make poetry install to this location
-    POETRY_HOME="/opt/poetry" \
+ENV POETRY_HOME="/opt/poetry" 
     # make poetry create the virtual environment in the project's root
     # it gets named `.venv`
-    POETRY_VIRTUALENVS_IN_PROJECT=true \
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
     # do not ask any interactive question
-    POETRY_NO_INTERACTION=1 \
-    \
+ENV POETRY_NO_INTERACTION=1
+ 
     # paths
     # this is where our requirements + virtual environment will live
-    PYSETUP_PATH="/opt/pysetup" \
-    VENV_PATH="/opt/pysetup/.venv"
+ENV PYSETUP_PATH="/opt/pysetup"
+ENV VENV_PATH="/opt/pysetup/.venv"
 
 
 # prepend poetry and venv to path + scripts home
