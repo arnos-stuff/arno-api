@@ -5,6 +5,8 @@ FROM python:3.9.10-slim as python-base
 ENV PYTHONUNBUFFERED=1 \
     # prevents python creating .pyc files
     PYTHONDONTWRITEBYTECODE=1 \
+    ENV PYTHONUNBUFFERED 1 \
+    ENV PATH="/root/.local/bin:${PATH}" \
     \
     # pip
     PIP_NO_CACHE_DIR=off \
